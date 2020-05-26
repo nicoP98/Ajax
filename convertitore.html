@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+        <title>Convertitore basi</title>
+<script language="Javascript">
+function valid(base)
+{
+	var num;
+	var stringa,i,c;
+	switch(base)
+	{
+		case 10:num=document.form10.numero.value;stringa="0123456789";break;
+		case 2:num=document.form2.numero.value;stringa="01";break;
+		case 8:num=document.form8.numero.value;stringa="01234567";break;
+		case 16:num=document.form16.numero.value;stringa="0123456789ABCDEFabcdef";break;
+	}
+	if(num=="")
+		{
+			alert("Immetti il numero da convertire");
+			return false;
+		}
+	var l=num.length;
+	for(i=0;i<l;i++)
+	{
+		c=num.substring(i,i+1);
+		if(stringa.indexOf(c)==-1)
+		{
+			alert("Numero non valido!");
+			return false;
+		}
+	}
+	return true;
+}
+</script>
+<body>
+<h1>Convertitore basi</h1>
+<table border=1 width=50%>
+<tr>
+<th width=20%>Base</th>
+<th width=45%>Numero da convertire</th>
+<th width=35%>Azione</th>
+</tr>
+
+<tr align=center>
+<form name="form10" action="converti.php" onsubmit="return valid(10)">
+<input type="Hidden" name="base" value=10>
+<td>10</td>
+<td><input type="text" name="numero" size=20></td>
+<td><input type="submit" value="Converti"> <input type="reset" value="Azzera"></td>
+</form> 
+</tr>
+
+<tr align=center>
+<form name="form2" action="converti.php" onsubmit="return valid(2)">
+<input type="Hidden" name="base" value=2>
+<td>2</td>
+<td><input type="text" name="numero" size=20></td>
+<td><input type="submit" value="Converti"> <input type="reset" value="Azzera"></td>
+</form> 
+</tr>
+
+<tr align=center>
+<form name="form8" action="converti.php" onsubmit="return valid(8)">
+<input type="Hidden" name="base" value=8>
+<td>8</td>
+<td><input type="text" name="numero" size=20></td>
+<td><input type="submit" value="Converti"> <input type="reset" value="Azzera"></td>
+</form> 
+</tr>
+
+<tr align=center>
+<form name="form16" action="converti.php" onsubmit="return valid(16)">
+<input type="Hidden" name="base" value=16>
+<td>16</td>
+<td><input type="text" name="numero" size=20></td>
+<td><input type="submit" value="Converti"> <input type="reset" value="Azzera"></td>
+</form> 
+</tr>
+</table>
+<br/><br/>
+
+
+</body>
+</html>
